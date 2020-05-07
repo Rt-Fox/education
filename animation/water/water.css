@@ -1,0 +1,79 @@
+body {
+    --size: 250px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #333;
+}
+button {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 24px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    width: var(--size);
+    font-weight: 600;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+button span {
+    position: relative;
+}
+button:hover .wave{
+    top: -150px;
+}
+button .wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: var(--size);
+    height: var(--size);
+    background: linear-gradient(45deg, #4f00bc 10%, #29abe2);
+    transition: 0.5s ease;
+}
+button .wave:after {
+    content: '';
+    position: absolute;
+    width: 210%;
+    height: 210%;
+    top: 0;
+    left: 50%;
+    transform: translate(-40%, -95%);
+}
+button .wave:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+}
+button .wave:after  {
+    border-radius: 40%;
+    animation: wave 7s linear infinite;
+    background-color: rgba(51, 51, 51 , 0.5);
+}
+button .wave:before  {
+    border-radius: 45%;
+    animation: wave 12s linear infinite;
+    background-color: rgba(51, 51, 51 , 1);
+
+}
+@keyframes wave {
+    0% {
+        transform: translate(-50%,-75%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%,-75%) rotate(360deg);
+    }
+
+}

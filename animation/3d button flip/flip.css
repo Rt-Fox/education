@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #00a8c5, #ffff73) ;
+}
+.wrapper {
+    width: 80%;
+    text-align: center;
+}
+.container1 {
+    display: inline-flex;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    cursor: pointer;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+.container1:nth-child(1) .front, .container1:nth-child(1) .back{
+    background: linear-gradient(45deg, #c4302b, #ff231b);
+}
+.container1:nth-child(2n) .front, .container1:nth-child(2n) .back{
+    background: linear-gradient(45deg, #2183bf, #2faffe);
+}
+.container1:nth-child(3) .front, .container1:nth-child(3) .back{
+    background: linear-gradient(45deg, #b12169, #ff2f97);
+}
+.container1:hover .flipper {
+    transform: rotateX(-90deg);
+}
+.container1  .flipper {
+     transition: all 0.5s ease;
+     transform-style: preserve-3d;
+     position: relative;
+ }
+.container1 .button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 180px;
+    padding: 0 10px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Gochi Hand', cursive;
+    color: white;
+    letter-spacing: 2px;
+}
+.button .fa {
+    font-size: 24px;
+}
+.front {
+    transform: translatez(22px);
+}
+.back {
+    text-shadow: 1px 0 2px #000000;
+    transform: rotateX(90deg) translateZ(22px);
+}

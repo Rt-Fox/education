@@ -1,0 +1,87 @@
+body {
+    --border:  5px;
+    --dark: #333;
+    /*--neon: #1bffff;*/
+    /*--neon: #ed1e79;*/
+    /*--neon: #009245;*/
+    --neon: #002945;
+    /*--neon: #0029;*/
+    /*--neon: #009245;*/
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, var(--dark), #5a5454);
+}
+button {
+    outline: none;
+    font-family: 'Gochi Hand', cursive;
+    position: relative;
+    color: var(--neon);
+    text-transform: uppercase;
+    background-color: transparent;
+    font-size: 100px;
+    letter-spacing: 3px;
+    overflow: hidden;
+    padding: 5% 10%;
+    cursor: pointer;
+    border:none;
+    transition: 0.6s ease;
+}
+span:nth-child(1n) {
+    display: block;
+    position: absolute;
+    transition: 0.6s ease;
+}
+span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    height: var(--border);
+    width: 100%;
+    background: linear-gradient(90deg, transparent,var(--neon));
+    transition-delay: 0.25s;
+}
+span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: var(--border);
+    height: 100%;
+    background: linear-gradient(180deg, transparent,var(--neon));
+}
+span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: var(--border);
+    background: linear-gradient(270deg, transparent,var(--neon));
+    transition-delay: 0.25s;
+}
+span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: var(--border);
+    height: 100%;
+    background: linear-gradient(0deg, transparent,var(--neon));
+}
+button:hover {
+    color: var(--dark);
+    background-color: var(--neon);
+    transition-delay: 0.5s;
+    box-shadow: 0 0 10px var(--neon),
+                0 0 40px var(--neon),
+                0 0 80px var(--neon);
+}
+button:hover span:nth-child(1) {
+    left: 100%;
+}
+button:hover span:nth-child(2) {
+    top: 100%;
+}
+button:hover span:nth-child(3) {
+    right: 100%;
+}
+button:hover span:nth-child(4) {
+    bottom: 100%;
+}

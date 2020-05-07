@@ -1,0 +1,120 @@
+body {
+    height: 100vh;
+    font-family: 'Sedgwick Ave Display', cursive;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+input {
+    display: none;
+}
+input#section1:checked ~ nav label[for='section1'] {
+    background-color: #fff;
+}
+input#section2:checked ~ nav label[for='section2'] {
+    background-color: #fff;
+}
+input#section3:checked ~ nav label[for='section3'] {
+    background-color: #fff;
+}
+input#section4:checked ~ nav label[for='section4'] {
+    background-color: #fff;
+}
+input#section1:checked ~ section:nth-of-type(1){
+    top: 0;
+    transition: 0.5s ease;
+    z-index: -1;
+}
+input#section2:checked ~ section:nth-of-type(2){
+    top: 0;
+    transition: 0.5s ease;
+    z-index: -1;
+}
+input#section3:checked ~ section:nth-of-type(3){
+    top: 0;
+    transition: 0.5s ease;
+    z-index: -1;
+}
+input#section4:checked ~ section:nth-of-type(4){
+    top: 0;
+    transition: 0.5s ease;
+    z-index: -1;
+}
+input#section1:checked~ .cover {
+    background-color: #7fd03e;
+}
+input#section2:checked~ .cover {
+    background-color: #2183bf;
+}
+input#section3:checked~ .cover {
+    background-color: #00ffa1;
+}
+input#section4:checked~ .cover {
+    background-color: #00ffee;
+}
+nav {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+nav label {
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 12px 0;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+nav label:hover {
+    background-color: #fff;
+}
+
+section {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-delay: 0.5s;
+}
+section:nth-of-type(1) {
+    background-color: #7fd03e;
+}
+section:nth-of-type(2) {
+    background-color: #2183bf;
+}
+section:nth-of-type(3) {
+    background-color: #00ffa1;
+}
+section:nth-of-type(4) {
+    background-color: #00ffee;
+}
+section h2 {
+    font-size: 140px;
+    text-align: center;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+}
+div {
+    position: absolute;
+    top:100%;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

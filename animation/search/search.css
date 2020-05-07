@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    --search-color: #422b1f;
+    --search-bg-color: #f6f6f6;
+    --search-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    --search-border-radius: 20px;
+    --search-text-size: x-large;
+}
+.search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.search_bar {
+    width: 280px;
+    position: relative;
+    margin: 0 auto;
+}
+.search_bar input[type="text"] {
+    width: 0;
+    background: transparent;
+    transition: border 0.3s 0s, width 0.2s 0.3s, cubic-bezier(0.255,0.01,0.475,1.01) text-indent 0.2s 0.3s;
+    padding: 20px 27px;
+    text-indent: 30px;
+    outline: none;
+    border: 1px solid #44250b;
+    font-size: large;
+    color: #A8A952;
+    border-radius: 20px;
+}
+.search_bar .checkbox {
+    display: none;
+}
+.search_bar .checkbox:checked +label + input {
+    width: 230px;
+    padding: 20px 50px 20px 20px;
+    border: 5px solid #44250b;
+    text-indent: 0px;
+}
+.search_bar .checkbox:checked +label div {
+    right: 0px;
+    height: 40px;
+    transform: translateX(50%) rotate(360deg) scale(0);
+    color: #448996;
+}
+.search_bar .checkbox:checked + label .last {
+    left: 220px;
+    height: 40px;
+    transform: translateY(-50%) rotate(360deg) scale(1);
+}
+.search_bar .checkbox:checked {
+    top: 50%;
+    transition: all 0.3s 0.45s;
+}
+.search_bar .checkbox:not(checked) {
+    top: -50%;
+    transition: all 0.3s 0.45s;
+}
+.search_bar .last{
+    display: flex;
+    justify-content: flex-end;
+    height: 40px;
+    width: 80px;
+    background: transparent;
+    transform: translateY(-50%) rotate(0deg) scale(0);
+}
+.search_bar div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(50%) rotate(0) scale(1);
+    cursor: pointer;
+    z-index: 2;
+    margin: auto;
+    border-radius: 4px;
+    right: 50%;
+    height: 40px;
+    background: transparent;
+    transition: right 0.3s 0.3s, transform 0.3s 0.3s, color 0.3s 0.3s;
+    line-height: 60px;
+    color: #A8A952;
+}
+img {
+    background: transparent;
+    height: 100%;
+}
+
+div:hover input[type="text"]{
+    background-color: #EFE7DB;
+}
