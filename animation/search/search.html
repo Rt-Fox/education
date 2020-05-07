@@ -3,18 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
     <link href="search.css" rel="stylesheet">
 </head>
 <body>
+<!--1-->
 <form class="search">
     <div class="search_bar">
-        <input type="checkbox" id="searchOne" class="checkbox">
+        <input class="checkbox" id="searchOne" type="checkbox">
         <label for="searchOne">
             <div><img src="lupa.png"></div>
-            <div class="last"><img src="lupa.png"></div>
+            <div class="last"><i class="fa fa-times"></i></div>
         </label>
-        <input type="text" placeholder="Введите запрос">
+        <input placeholder="Введите запрос" type="text">
     </div>
 </form>
+<!--2-->
+<form class="container">
+    <input placeholder="Search..." type="text">
+    <div class="search2"></div>
+</form>
+<!--3-->
+<div id="cover">
+    <form action="" method="get">
+        <div class="td" id="s-cover">
+            <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+            </button>
+        </div>
+    </form>
+</div>
+<!--4-->
+
+<label class="search3" for="inpt_search">
+    <input id="inpt_search" type="text"/>
+</label>
+
 </body>
 </html>
