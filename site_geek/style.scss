@@ -1,0 +1,328 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.top {
+  position: relative;
+  background-image: url(2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 80vh;
+
+  .header {
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: #000000;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      width: 172px;
+      height: 46px;
+
+      div:first-child {
+        font-family: 'Poppins', sans-serif;
+        width: 169px;
+        height: 29px;
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 22.36px;
+        letter-spacing: 0.77px;
+      }
+
+      div:nth-child(2) {
+        width: 171px;
+        height: 12px;
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 22.36px;
+        text-transform: uppercase;
+        letter-spacing: 30.41px;
+      }
+    }
+
+    .tel {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      div {
+        /* Style for "тел" */
+        background: url(tel.png) no-repeat center center;
+        width: 17px;
+        height: 25px;
+      }
+
+      /* Style for "tel" */
+      /* Style for "+123 456 7" */
+      width: 130px;
+      height: 12px;
+      color: #ffffff;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 22.36px;
+      /* Text style for "+123 456 7" */
+      letter-spacing: 0.36px;
+    }
+
+    .email {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 190px;
+      height: 17px;
+
+      div {
+        background: url(mes.png) no-repeat center center;
+        width: 25px;
+        height: 19px;
+      }
+
+      /* Style for "info@examp" */
+      color: #ffffff;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 22.36px;
+      /* Text style for "info@examp" */
+      letter-spacing: 0.36px;
+    }
+
+    .searchBox {
+      right: 5vw;
+      transform: translate(10%, 0);
+      background: rgba(255, 255, 255, 0.1);
+      height: 40px;
+      border-radius: 40px;
+      padding: 10px;
+
+    }
+
+    .searchBox:hover > .searchInput {
+      width: 240px;
+      padding: 0 6px;
+    }
+
+    .searchBox:hover > .searchButton {
+      background: white;
+      color: #2f3640;
+    }
+
+    .searchButton {
+      color: white;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2f3640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+    }
+
+    .searchInput {
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: white;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: 12vh;
+    left: 0;
+    width: 100vw;
+    height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid white;
+    ul {
+      display: flex;
+      flex-direction: row;
+      width: 511px;
+      height: 16px;
+      color: #000000;
+      font-family: "Roboto Condensed";
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 22.36px;
+
+      li {
+        margin: auto;
+        list-style-type: none;
+
+        &:nth-child(1) {
+          color: red;
+          letter-spacing: 0.36px;
+        }
+
+        &:nth-child(2) {
+          letter-spacing: 0.36px;
+        }
+        &:hover {
+          transform: translateY(-3px);
+        }
+        a {
+          text-decoration: none;
+          color: black;
+          &:active {
+            color: blue;
+          }
+        }
+        &:nth-child(2) {
+          a:active {
+          }
+        }
+      }
+    }
+    &:hover {
+      transition: height 1s;
+      height: 9vh;
+      ul {
+        font-size: 20px;
+        transition: font-size 1s, width 1s;
+        width: 600px;
+      }
+    }
+  }
+  .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Style for "Morbi in n" */
+    width: 100vw;
+    height: 100vh;
+    color: red;
+    font-family: Poppins;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: 0.6px;
+  }
+  .xz {
+    position: absolute;
+    top: 35vh;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    /* Style for "Nunc eget" */
+    height: 18px;
+    font-family: "Roboto Condensed";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 48px;
+    /* Text style for "N, unc ege" */
+    letter-spacing: 0.18px;
+  }
+  .line {
+    position: absolute;
+    top: 40vh;
+    width: 100vw;
+    height: 10px;
+    hr {
+      width: 80px;
+    }
+  }
+  .social {
+    position: absolute;
+    top: 55vh;
+    width: 100vw;
+    div {
+      display: flex;
+      flex-direction: row;
+      width: 300px;
+      margin: auto;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        font-size: 30px;
+        border: 1px solid white;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,0.3);
+        text-decoration: none;
+        color: black;
+
+        &:hover{
+          background-color: rgba(0,0,0,0.3);
+        }
+      }
+    }
+  }
+}
+.about_us {
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: row;
+  height: 30vh;
+  width: 70vw;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      /* Style for "About Us!" */
+      height: 28px;
+      color: #f44336;
+      font-family: Poppins;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 36px;
+    }
+    p {
+      width: 398px;
+      height: 203px;
+      color: #999999;
+      font-family: "Roboto Condensed";
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 24px;
+      letter-spacing: 0.12px;
+    }
+  }
+  img {
+    height: 250px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
+}
