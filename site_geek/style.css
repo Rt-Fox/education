@@ -10,8 +10,9 @@ body {
 
 .top {
   position: relative;
-  background-image: url(2.png);
+  background-image: url(img/2.png);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
   height: 80vh;
@@ -75,7 +76,7 @@ body {
 }
 .top .header .tel div {
   /* Style for "тел" */
-  background: url(tel.png) no-repeat center center;
+  background: url(img/tel.png) no-repeat center center;
   width: 17px;
   height: 25px;
 }
@@ -96,7 +97,7 @@ body {
   letter-spacing: 0.36px;
 }
 .top .header .email div {
-  background: url(mes.png) no-repeat center center;
+  background: url(img/mes.png) no-repeat center center;
   width: 25px;
   height: 19px;
 }
@@ -296,10 +297,273 @@ body {
   height: 250px;
 }
 
+.services {
+  border: 1px solid white;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.services .services_title {
+  margin: 82px 0 90px;
+  text-align: center;
+  color: #f44336;
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 48px;
+}
+.services .services_title:first-letter {
+  text-transform: uppercase;
+}
+.services .services_content {
+  margin: 90px 0 108px;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.services .column {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.services .column .services_text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  margin: 0 66px 0 0;
+}
+.services .column .services_text .cont {
+  height: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.services .column .services_text .cont .cont_title {
+  width: 282px;
+  text-align: right;
+  /* Style for "Aut Perfer" */
+  height: 14px;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  /* Text style for "Aut Perfer" */
+  letter-spacing: 0.16px;
+}
+.services .column .services_text .cont .cont_text {
+  text-align: right;
+  /* Style for "Itaque ear" */
+  width: 282px;
+  height: 51px;
+  color: #999999;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  /* Text style for "Itaque ear" */
+  letter-spacing: 0.12px;
+}
+.services .column .services_sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.services .column .services_sign button {
+  /* Style for "Эллипс 1" */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 102px;
+  height: 102px;
+  border: 1px solid #acacac;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+.services .column .services_sign button:focus {
+  background-color: #f44336;
+}
+.services .column-reverse {
+  margin: 0 0 0 90px;
+  flex-direction: row-reverse;
+}
+.services .column-reverse .services_text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  margin: 0 0 0 66px;
+}
+.services .column-reverse .services_text .cont .cont_title,
+.services .column-reverse .services_text .cont .cont_text {
+  text-align: left;
+}
+.services .cont_title {
+  /* Style for "Aut Perfer" */
+  width: 206px;
+  height: 14px;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  /* Text style for "Aut Perfer" */
+  letter-spacing: 0.16px;
+}
+
+.gallery {
+  height: auto;
+  border: 1px solid white;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+.gallery .gallery_title {
+  margin: 92px 0 92px;
+  text-align: center;
+  color: #f44336;
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+.gallery .gallery_cont {
+  width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+.gallery .gallery_cont .gallery_cont_column {
+  width: 24%;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.gallery .gallery_cont .gallery_cont_column img {
+  width: 100%;
+}
+.gallery .gallery_cont .gallery_cont_column .gallery_name {
+  /* Style for "Assasin’s" */
+  width: 100%;
+  margin: 10px 0;
+  height: 30px;
+  text-align: center;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23.94px;
+  text-transform: uppercase;
+  letter-spacing: 0.14px;
+}
+.gallery .gallery_cont .gallery_cont_column button {
+  width: 40%;
+  height: 30px;
+  background-color: #f44336;
+}
+
+.prev {
+  margin: 100px 0;
+  width: 100vw;
+  height: 537px;
+  background-color: rgba(102, 102, 102, 0.81);
+  background-image: url("img/3.png");
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.prev .prev_title {
+  /* Style for "Testimonia" */
+  margin-top: 85px;
+  text-align: center;
+  width: 100%;
+  height: 39px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 48px;
+}
+.prev .prev_sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 90px auto 60px;
+}
+.prev .prev_line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+.prev .prev_line button {
+  background: transparent;
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+.prev .prev_line .prev_text {
+  margin: 0 30px;
+  text-align: center;
+  width: 935px;
+  color: #ffffff;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+}
+.prev .prev_footer {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.footer {
+  width: 100vw;
+  padding: 20px 0;
+  font-size: 20px;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
 @media screen and (max-width: 620px) {
   .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
+  }
+
+  .services_content {
+    display: flex;
+    flex-direction: column;
   }
 }
 

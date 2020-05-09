@@ -6,10 +6,12 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .top {
   position: relative;
-  background-image: url(2.png);
+  background-image: url(img/2.png);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
   height: 80vh;
@@ -65,7 +67,7 @@ body {
 
       div {
         /* Style for "тел" */
-        background: url(tel.png) no-repeat center center;
+        background: url(img/tel.png) no-repeat center center;
         width: 17px;
         height: 25px;
       }
@@ -92,7 +94,7 @@ body {
       height: 17px;
 
       div {
-        background: url(mes.png) no-repeat center center;
+        background: url(img/mes.png) no-repeat center center;
         width: 25px;
         height: 19px;
       }
@@ -165,6 +167,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 1px solid white;
+
     ul {
       display: flex;
       flex-direction: row;
@@ -188,25 +191,31 @@ body {
         &:nth-child(2) {
           letter-spacing: 0.36px;
         }
+
         &:hover {
           transform: translateY(-3px);
         }
+
         a {
           text-decoration: none;
           color: black;
+
           &:active {
             color: blue;
           }
         }
+
         &:nth-child(2) {
           a:active {
           }
         }
       }
     }
+
     &:hover {
       transition: height 1s;
       height: 9vh;
+
       ul {
         font-size: 20px;
         transition: font-size 1s, width 1s;
@@ -214,6 +223,7 @@ body {
       }
     }
   }
+
   .name {
     display: flex;
     justify-content: center;
@@ -228,6 +238,7 @@ body {
     line-height: 48px;
     letter-spacing: 0.6px;
   }
+
   .xz {
     position: absolute;
     top: 35vh;
@@ -243,19 +254,23 @@ body {
     /* Text style for "N, unc ege" */
     letter-spacing: 0.18px;
   }
+
   .line {
     position: absolute;
     top: 40vh;
     width: 100vw;
     height: 10px;
+
     hr {
       width: 80px;
     }
   }
+
   .social {
     position: absolute;
     top: 55vh;
     width: 100vw;
+
     div {
       display: flex;
       flex-direction: row;
@@ -272,17 +287,18 @@ body {
         font-size: 30px;
         border: 1px solid white;
         border-radius: 50%;
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(255, 255, 255, 0.3);
         text-decoration: none;
         color: black;
 
-        &:hover{
-          background-color: rgba(0,0,0,0.3);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.3);
         }
       }
     }
   }
 }
+
 .about_us {
   margin: 5vh auto;
   display: flex;
@@ -305,6 +321,7 @@ body {
       font-weight: 500;
       line-height: 36px;
     }
+
     p {
       width: 398px;
       height: 203px;
@@ -316,13 +333,307 @@ body {
       letter-spacing: 0.12px;
     }
   }
+
   img {
     height: 250px;
   }
 }
+
+.services {
+  border: 1px solid white;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+
+  .services_title {
+    margin: 82px 0 90px;
+    text-align: center;
+    color: #f44336;
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 48px;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .services_content {
+    margin: 90px 0 108px;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .column {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .services_text {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+      margin: 0 66px 0 0;
+
+      .cont {
+        height: 102px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .cont_title {
+          width: 282px;
+          text-align: right;
+          /* Style for "Aut Perfer" */
+          height: 14px;
+          color: #000000;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          /* Text style for "Aut Perfer" */
+          letter-spacing: 0.16px;
+        }
+
+        .cont_text {
+          text-align: right;
+          /* Style for "Itaque ear" */
+          width: 282px;
+          height: 51px;
+          color: #999999;
+          font-family: Montserrat;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 20px;
+          /* Text style for "Itaque ear" */
+          letter-spacing: 0.12px;
+        }
+      }
+    }
+
+    .services_sign {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+
+      button {
+        /* Style for "Эллипс 1" */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 102px;
+        height: 102px;
+        border: 1px solid #acacac;
+        background-color: #e1e1e1;
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+
+        &:focus {
+          background-color: #f44336;
+        }
+      }
+    }
+
+  }
+
+  .column-reverse {
+    margin: 0 0 0 90px;
+    flex-direction: row-reverse;
+
+    .services_text {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 100%;
+      margin: 0 0 0 66px;
+
+      .cont {
+        .cont_title,
+        .cont_text {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .cont_title {
+    /* Style for "Aut Perfer" */
+    width: 206px;
+    height: 14px;
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    /* Text style for "Aut Perfer" */
+    letter-spacing: 0.16px;
+  }
+}
+
+.gallery {
+  height: auto;
+  border: 1px solid white;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+
+  .gallery_title {
+    margin: 92px 0 92px;
+    text-align: center;
+    color: #f44336;
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 48px;
+    text-transform: capitalize;
+  }
+
+  .gallery_cont {
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+
+    .gallery_cont_column {
+      width: 24%;
+      margin: 1%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      img {
+        width: 100%;
+      }
+
+      .gallery_name {
+        /* Style for "Assasin’s" */
+        width: 100%;
+        margin: 10px 0;
+        height: 30px;
+        text-align: center;
+        color: #000000;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 23.94px;
+        text-transform: uppercase;
+        letter-spacing: 0.14px;
+      }
+
+      button {
+        width: 40%;
+        height: 30px;
+        background-color: #f44336;
+      }
+    }
+  }
+}
+
+.prev {
+  margin: 100px 0;
+  width: 100vw;
+  height: 537px;
+  background-color: rgba(102, 102, 102, 0.81);
+  background-image: url("img/3.png");
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  .prev_title {
+    /* Style for "Testimonia" */
+    margin-top: 85px;
+    text-align: center;
+    width: 100%;
+    height: 39px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 48px;
+  }
+
+  .prev_sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 90px auto 60px;
+  }
+
+  .prev_line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+
+    button {
+      background: transparent;
+      border: 1px solid white;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: white;
+    }
+
+    .prev_text {
+      margin: 0 30px;
+      text-align: center;
+      width: 935px;
+      color: #ffffff;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+    }
+  }
+
+  .prev_footer {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+
+.footer {
+  width: 100vw;
+  padding: 20px 0;
+  font-size: 20px;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
 @media screen and (max-width: 620px) {
   .searchBox:hover > .searchInput {
     width: 150px;
     padding: 0 6px;
+  }
+  .services_content {
+    display: flex;
+    flex-direction: column;
   }
 }
