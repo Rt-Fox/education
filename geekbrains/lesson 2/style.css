@@ -1,0 +1,274 @@
+.container {
+    background-color:  #f8f8f8;
+    height: 97vh;
+    width: 90vw;
+    margin: 0 auto;
+}
+.header {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 20vh;
+    padding: 10px;
+    position: relative;
+    background-color: rgba(0,0,0,0.1);
+    background-image: url(../img/neww.png);
+    background-size: 11%;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px double black;
+    background-color: rgba(221, 218, 212, 0.7);
+    width: 30%;
+    height: 100%;
+}
+.menu ul{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.menu li{
+    list-style-type: none;
+}
+.inline li {
+    display: inline-block;
+
+}
+.menu a {
+    color: green;
+    font-family: 'Baloo Bhaina 2', cursive;
+    text-decoration: none;
+
+}
+.logo {
+    position: absolute;
+    right: 32%;
+    top: 5%;
+    height: 50%;
+    width: 10vw;
+    border-radius: 50%;
+    background-color: #EFE7DB;
+}
+.logo img {
+    border: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+.content {
+    padding: 10px;
+    height: 20vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.content h1{
+    margin: 0px;
+}
+.futer {
+    position: fixed;
+    left: 0; bottom: 0;
+    width: 90vw;
+    background-color: #e3e3e4;
+    border-top: 1px solid black;
+    height: 5vh;
+    text-align: right;
+    padding-top: 2vh;
+    padding-right: 10vw;
+}
+.main-wrapper{
+    height: 70vh;
+}
+.kadr {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    border:3px solid #000c8d;
+    height: 50vh;
+}
+.kadr a {
+    text-decoration: none;
+    color: #000c8d;
+    text-align: center;
+}
+.tovar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+}
+.tovar button {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    z-index: 2;
+    width: 100px;
+    height: 5vh;
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: 4px;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.tovar button span {
+    position: relative;
+    color: #EFE7DB;
+}
+.tovar button:hover .wave{
+    top: -50px;
+}
+.tovar button:focus {
+    border:3px solid #000c8d;
+    border-radius: 5px;
+    outline: none;
+}
+.tovar button:hover span {
+    color: antiquewhite;
+}
+.tovar button .wave {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #4f00bc 10%, #29abe2);
+    transition: 0.5s ease;
+}
+.tovar button .wave:after {
+    content: '';
+    position: absolute;
+    width: 210%;
+    height: 210%;
+    top: 0;
+    left: 50%;
+    transform: translate(-40%, -95%);
+}
+.tovar button .wave:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+}
+.tovar button .wave:after  {
+    border-radius: 40%;
+    animation: wave 7s linear infinite;
+    background-color: rgba(51, 51, 51 , 0.5);
+}
+.tovar button .wave:before  {
+    border-radius: 45%;
+    animation: wave 12s linear infinite;
+    background-color: rgba(51, 51, 51 , 1);
+
+}
+.tovar img {
+    width: 300px;
+    height: 300px;
+    border: solid 1px black;
+    margin: 10px;
+}
+h3 {
+    margin: 5px;
+    color: black;
+    font-size:20px;
+    font-weight: 400;
+    }
+.tovar h2{
+    width: 300px;
+    margin: 0;
+}
+h3 + p {
+    color: #484343;
+    margin: 5px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: left;
+}
+.kr {
+    margin: 5px;
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 24px;
+}
+.wrapper {
+    width: 50vw;
+}
+.map {
+    width: 47vw;
+    margin: 1%;
+}
+.hac {
+    list-style-image: url("../img/new.png");
+    color: green;
+    font-size: 20px;
+    font-family: 'Baloo Bhaina 2', cursive;
+}
+input {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 10%;
+            color: #A59997;
+            font-family: 'Baloo Bhaina 2', cursive;
+}
+.inline {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 90vw;
+}
+.inline h3{
+    font-size: 40px;
+}
+.inline a {
+    display: block;
+    height: 50vh;
+    width: 100vw;
+}
+.inline img{
+    width: 100%;
+    height: 100%;
+    border: solid 1px black;
+}
+
+#one img {
+    margin: 5px;
+    width: 20%;
+    height: 80%;
+    box-shadow: 0 0 0 3px black;
+}
+img {
+   outline: 1px solid black;
+}
+img:hover {
+    outline: none;
+}
+@keyframes wave {
+    0% {
+        transform: translate(-50%,-75%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%,-75%) rotate(360deg);
+    }
+
+}

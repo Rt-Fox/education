@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson4</title>
+    <style>
+        .grid-main-wrapper{
+            display: grid;
+            height: 95vh;
+            width: 95vw;
+            grid-template-rows: 1fr 3fr 1fr;
+            grid-template-columns: 1fr 4fr  ;
+            grid-template-areas:
+            "header header"
+            "left content"
+            "footer footer";
+            grid-gap: 10px;
+        }
+        .header {
+            grid-area: header;
+            background-color: aqua;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .hr {
+            display: flex;
+            justify-content: space-around;
+            border: 3px solid black;
+            width: 80%;
+            border-radius: 10px;
+            height: 80%;
+        }
+        .hr li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .hr li:last-child {
+            border: 1px solid black;
+            padding: 0;
+            background-image: url("img/new.png");
+            width: 50px;
+            height: 20px;
+        }
+        .hr a:hover {
+            color: red;
+        }
+        .hr a:hover:before {
+            content: ">>";
+            color: red;
+        }
+        .left {
+            grid-area: left;
+            background-color: aqua;
+
+        }
+        .content {
+            grid-area: content;
+            background-color: aqua;
+
+        }
+        .footer {
+            background-color: aqua;
+            grid-area: footer ;
+        }
+        .one {
+            border: 1px solid black;
+        }
+        .one td {
+            border: 1px solid red;
+            text-align: center;
+        }
+        .two {
+            height: 100%;
+            width: 100%;
+            word-wrap: break-word;
+        }
+        .two td {
+            border: 1px solid black;
+            padding: 0;
+        }
+        .two tr:first-child{
+            text-align: center;
+            color:red;
+            height: 20px;
+        }
+        .shadow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 2px red;
+            height: 100%;
+        }
+        .shadow:hover {
+            border:0;
+            box-shadow: none;
+            height: 100%;
+        }
+        .border {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            height: 100px;
+        }
+        .border:hover {
+            border: 0;
+            margin: 2px;
+        }
+        p:first-letter {
+            font-size: 30px;
+            color: #cd66cc;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div v-if="menu" class="grid-main-wrapper">
+    <div class="header">
+        <h1>Добпро пожаловать в новый магазин!</h1>
+        <ul class="hr">
+            <li><a>Главная</a></li>
+            <li><a>Каталог</a></li>
+            <li><a>Меню</a></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="left">
+        <span>Характеристики товара</span>
+        <table class="one">
+            <tr>
+                <td>красочный</td>
+                <td>изящный</td>
+            </tr>
+            <tr>
+                <td>удивительный</td>
+                <td>умопомрачительный</td>
+            </tr>
+            <tr>
+                <td colspan="2">я придумал хорошее описание</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="content">
+        <table class="two">
+            <tr>
+                <td rowspan="5">красочный</td>
+                <td colspan="3">изящный</td>
+            </tr>
+            <tr>
+                <td>изящный</td>
+                <td>изящный</td>
+                <td>изящный</td>
+            </tr>
+            <tr>
+                <td><img class="shadow" src="img/new.png"></td>
+                <td>манипуляция с</td>
+                <td>тенью</td>
+            </tr>
+            <tr>
+                <td colspan="3"><p>Верхний способ лучше нижнего тем, что при верстке сайта, верхний способ адаптивнее.
+                    Кстати это параграф</p></td>
+
+            </tr>
+            <tr>
+                <td><img class="border" src="img/new.png"></td>
+                <td>Манипуляция с</td>
+                <td>бордером</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="footer">Все права защищены ляляля</div>
+</div>
+</body>
+</html>
