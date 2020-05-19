@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,200&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="action" onclick="actionToggle()">
+    <span><i class="fa fa-share-square-o"></i></span>
+    <ul>
+        <li><i class="fa fa-facebook"></i>Share on Facebook</li>
+        <li><i class="fa fa-twitter"></i>Share on Twitter</li>
+        <li><i class="fa fa-vk"></i>Share on Vk</li>
+        <li><i class="fa fa-instagram"></i>Share on Instagram</li>
+        <li><i class="fa fa-github"></i>Share on GitHub</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function actionToggle() {
+        var action = document.querySelector('.action')
+        action.classList.toggle('active')
+    }
+</script>
+</body>
+</html>
