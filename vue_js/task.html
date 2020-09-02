@@ -1,0 +1,379 @@
+<!--В своей версии вк:-->
+
+<!--+ Для мобильных:-->
+<!--На всю ширину экрана в столбик:-->
+<!--1. Блоки first-->
+<!--2. Блоки second-->
+<!--3. menu-->
+<!--При  этом:-->
+<!--Менять порядок контейнеров в документе нельзя-->
+<!--Хедер должен оставаться на месте при прокрутке-->
+
+<!--Для компьютера:-->
+<!--+ 1. При наведении на ссылку меню ее фон становистя зеленым и появляется тень-->
+<!--+ 2. Посещенная ссылка должна быть розовой-->
+<!--+ 3. Между пунктами меню должна быть горизонтальная черта (тег)-->
+<!--+ 4. Добавь в меню еще 10 пунктов так, чтобы оно (только оно) прокручивалось-->
+
+<!--Изучить:-->
+<!--@media-->
+<!--+ варианты значения директивы display-->
+<!--+ псевдоклассы css (hover, active, focus, visited)-->
+<!--+ tег горизонтальной черты-->
+<!--+ директива overflow-->
+<!--html-формы (input type select, radio, checkbox)-->
+<!--html-таблицы, html-списки-->
+<!--css transform, css animation-->
+
+<!--Доп. задание:-->
+<!--При наведении на любой пункт меню — хедер становится желтым-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://web-telegram.ru/" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>vk</title>
+    <style>
+    .header {
+           position: fixed;
+           z-index: 2;
+           width: 100%;
+           min-width: 500px;
+           height: 6.5vh;
+           background: rgba(0, 121, 204);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: row;
+           color: white;
+           animation: tat 3s ease-in-out infinite 1000ms;
+           font-family: 'Montserrat', sans-serif;
+     }
+    html {
+         overflow: scroll;
+         margin: 0;
+         width: 100%;
+
+    }
+    a {
+       text-decoration: none;
+    }
+    body {
+         overflow: hidden;
+         margin: 0;
+         width: 100%;
+    }
+
+    .layout {
+            position: absolute;
+            z-index: 1;
+            top: 6.5vh;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+     }
+
+    .menu {
+        width: 20%;
+        min-width: 120px;
+        height: 60vh
+    }
+    .menu a {
+       display: flex;
+       flex-direction: column;
+       padding: 20px;
+       color: green;
+    }
+    .menu a:visited {
+       display: flex;
+       flex-direction: column;
+       padding: 20px;
+       color: red;
+     }
+    .menu a:hover {
+       display: flex;
+       flex-direction: column;
+       padding: 20px;
+       color: green;
+       background: yellow;
+       box-shadow: 3px 3px 4px 2px black;
+       animation: tat 3s ease-in-out infinite;
+     }
+     .headertwo {
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: 1000;
+           width: 100%;
+           min-width: 500px;
+           height: 6.5vh;
+           background: green;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: row;
+           color: white
+     }
+    .menu:hover .headertwo {
+           position: fixed;
+           z-index: 1000;
+           width: 100%;
+           min-width: 500px;
+           height: 6.5vh;
+           background: #242240;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: row;
+           color: white
+    }
+    .menu a:active {
+           display: flex;
+           flex-direction: column;
+           padding: 20px;
+           color: blue;
+         }
+    .border {
+            border: 3px dashed rgb(210,10,220);
+    }
+    .kadr {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            border: solid 1px black;
+            height: 150px;
+    }
+    .main-wrapper {
+                display: flex;
+                flex-direction: row;
+                width: 70%;
+    }
+    .tak {
+        width: 100%;
+    }
+    .first {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            border: 5px solid white;
+            margin: 5px;
+            width: 90%;
+            min-width: 100px;
+            height: 400px;
+            background: rgba(0,0,0,0.10);
+            color: green;
+    }
+    .first a {
+            color: green
+    }
+    .first img{
+            width: 88%;
+    }
+    .second {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            border: 5px solid white;
+            margin: 5px;
+            width: 90%;
+            min-width: 100px;
+            height: 500px;
+            background: rgba(0,0,0,0.1);
+            color: green;
+    }
+    .status {
+            margin-left: auto;
+            width: 100px;
+    }
+    .line {
+            display: flex;
+            flex-direction: row;
+    }
+    input {
+            display: flex;
+            flex-direction: column;
+    }
+    input:focus {
+            background: rgba(0,0,0,0.1);
+            border: 1px solid silver;
+    }
+    @media (max-width: 1000px) {
+        .layout {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100vw ;
+            align-items: center;
+        }
+        .main-wrapper{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 80vw;
+        }
+        .first {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            border: 5px solid white;
+            margin: 5px;
+            width: 90%;
+            min-width: 100px;
+            height: 600px;
+            background: rgba(0,0,0,0.10);
+            color: green;
+        }
+        .second {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            border: 5px solid white;
+            margin: 5px;
+            width: 90%;
+            min-width: 100px;
+            height: 600px;
+            background: rgba(0,0,0,0.1);
+            color: green;
+        }
+        .menu {
+            width: 70%;
+            min-width: 120px;
+        }
+        .menu a {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           padding: 20px;
+           color: green;
+        }
+        input {
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+           position: fixed;
+           width: 100%;
+           min-width: 500px;
+           height: 6.5vh;
+           background: rgba(0, 121, 204);
+           color: white
+        }
+
+    }
+    @keyframes tat {
+        0% {transform: translateX(0px) translateY(0px)}
+        100% {transform: translateX(100px) translateY(150px);}
+    }
+    </style>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">#Лучше дома</div>
+    <div class="layout">
+        <div class="menu">
+            <div>
+                <a href="https://vk.com/id0">Моя страница</a>
+                <div class="headertwo">#Лучше дома</div>
+                <hr>
+                <a href="https://vk.com/feed">Новости</a>
+                <hr>
+                <a href="https://vk.com/im">Сообщения</a>
+                <hr>
+                <a href="https://vk.com/friends">Друзья</a>
+            </div>
+            <div class="border">
+                <a href="https://vk.com/bookmarks">Закладки</a>
+                <hr align="center" width=90% color="red">
+                <a href="https://vk.com/docs">Документы</a>
+            </div>
+            <hr>
+            <div class="kadr">
+                <a href="https://vk.com/id0">Ссылка 1</a>
+                <hr>
+                <a href="https://vk.com/feed">Ссылка 2</a>
+                <hr>
+                <a href="https://vk.com/im">Ссылка 3</a>
+                <hr>
+                <a href="https://vk.com/friends">Ссылка 4</a>
+                <hr>
+                <a href="https://vk.com/id0">Ссылка 5</a>
+                <hr>
+                <a href="https://vk.com/feed">Ссылка 6</a>
+                <hr>
+                <a href="https://vk.com/im">Ссылка 7</a>
+                <hr>
+                <a href="https://vk.com/friends">Ссылка 8</a>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="tak">
+                <div class="first">
+                    <a href="https://stepik.org/course/1280/syllabus?auth=registration">
+                        <img src="https://stepik.org/media/attachments/lesson/58180/tiger-color.png"/>
+                    </a>
+                </div>
+                <div class="first" style="transform: translateZ(-100px)">
+                    <a href="https://vk.com/vieneant">Ruslan Suleymanov</a>
+                    <a href="https://vk.com/mikerstudio">Mikhail Rybkin</a>
+                </div>
+                <div class="first">
+                    <table>
+                        <tr>
+                            <td rowspan="2" colspan="3" style="text-align:center">ghbdtn</td>
+                        </tr>
+                        <tr>
+                           <td>при</td>
+                           <td>ве</td>
+                           <td>т</td>
+                        </tr>
+                        <tr>
+                           <td>при</td>
+                           <td>ве</td>
+                           <td>т</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="first">
+                    <ol>
+                        <li><p>ghbdtn nt,t jdn</p></li>
+                        <li><p>ghbdtn nt,t jdn</p></li>
+                        <li><p>ghbdtn nt,t jdn</p></li>
+                        <li>ghbdtn</li>
+                        <li>ghbdtn</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="tak">
+                <div class="second">
+                    <div class="line">
+                        <h2>Тигр Степик</h2>
+                        <h4 class="status">Заходил минуту назад</h4>
+                    </div>
+                    <h3>Волк не тигр, тигр не волк</h3>
+                </div>
+                <div class="second">
+                    <h3>Мои фото</h3>
+                    <form action="/login/activate" method="post">
+                        <input type="text" name="text" required value="Отправить"/>
+                        <input type="text" name="text" required placeholder="Отправить"/>
+                        <input type="datetime" name="datetime"/>
+                        <input type="file" name="file"/>
+                        <input type="checkbox" name="number">ff1</input>
+                        <input type="checkbox" name="number">ff2</input>
+                        <input type="radio" name="number">ff3</input>
+                        <input type="submit" value="Отправить"/>
+                        <input type="password"/>
+                        <select name="ui">
+                            <option>1</option>
+                            <option selected="selected">2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

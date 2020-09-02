@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GeoMusic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+            type="text/javascript" charset="utf-8"></script>
+    <meta name="theme-color" content="#0079CC">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+            type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"
+            type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://js.api.here.com/v3/3.1/mapsjs-ui.css"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .point {
+            width: 40px;
+            height: 40px;
+        }
+
+        .wrapper {
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100vw;
+            height: 6.5vh;
+            display: flex;
+            background: rgba(0, 121, 204, 0.5);
+            box-shadow: -8px 8px 15px 5px rgba(0, 0, 0, 0.35);
+            z-index: 100;
+            justify-content: space-between;
+        }
+
+        div#app {
+            display: flex;
+            height: 93.5vh;
+            width: 100vw;
+            flex-direction: row;
+        }
+
+        .schedule {
+            background: #ffffff;
+            width: 20vw;
+            z-index: 99;
+        }
+
+        .schedule-elem {
+            border-radius: 8px;
+            background: rgba(0, 121, 204, 0.2);
+            box-shadow: -8px 8px 15px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            cursor: pointer;
+            height: 15%;
+            margin: auto auto 4vh;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .schedule img {
+            width: 25%;
+            border-radius: 100%;
+            margin: 30px;
+
+        }
+
+        h2.name {
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+
+        h3.address {
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        p.time {
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .footer {
+            background: transparent;
+            bottom: 5px;
+            position: fixed;
+            display: flex;
+            width: 20vw;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .textdata {
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .center {
+            width: 70vw;
+        }
+
+        .logo {
+            width: 20vw;
+            display: flex;
+            flex-direction: row;
+            padding-left: 1vw;
+            padding-top: 5px;
+        }
+
+        .logo p {
+            width: 60%;
+            margin: 0;
+            font-size: 4.5vh;
+            padding-left: 0.5vw;
+        }
+
+        .menu {
+            width: 10vw;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .logo img {
+            height: 5vh;
+            width: 5vh
+        }
+
+        .schedule h1 {
+            margin-left: 1vw;
+        }
+
+        .info-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-bottom: 2vh;
+        }
+
+        @media (max-aspect-ratio: 1100 / 800) {
+            html, body, .wrapper {
+                width: 100vw;
+            }
+
+            div#app {
+                flex-direction: column-reverse;
+                width: 100vw;
+            }
+
+            .schedule {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: fixed;
+                background: rgba(255, 255, 255, 0.5);
+                width: 100vw;
+            }
+
+            .footer {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="logo">
+            <img src="https://geomusic.ml/images/icons/logo.svg"/>
+            <p v-if="!small_screen">GeoMusic</p>
+        </div>
+        <div class="menu">
+            <button>Log in</button>
+            <button>Sign Up</button>
+        </div>
+    </div>
+    <div id="app">
+        <div class="schedule">
+            <h1 v-if="info_data == null && !small_screen">Сейчас играют:</h1>
+            <h1 v-if="info_data == null && small_screen && !show_now_playing" @click="show_now_playing=true">Сейчас
+                играют</h1>
+            <h1 v-if="info_data == null && small_screen && show_now_playing" @click="show_now_playing=false">
+                Закрыть</h1>
+            <h1 v-if="info_data != null">Расписание площадки</h1>
+            <div v-for="elem in schedule" class="schedule-elem"
+                 v-if="info_data == null && (show_now_playing || !small_screen)">
+                <img :src="elem.avatar"/>
+                <div class="textdata">
+                    <a @click="app.showBubble([[ elem.id ]])"><h2 class="name">[[ elem.name ]]</h2>
+                        <h3 class="address">[[ elem.point ]]</h3>
+                        <p class="time">[[ elem.start ]] — [[ elem.fin ]]</p>
+                    </a>
+                </div>
+            </div>
+            <div class="info" v-if="info_data != null">
+                <div class="info-buttons">
+
+                    <button @click="info_data = null; map.setZoom(14); removeObjectById('route'); removeObjectById('start'); removeObjectById('end') ">
+                        Закрыть
+                    </button>
+                    <span>[[ info_data.address ]]</span>
+                    <button @click="createRoute([[ info_data.lat ]], [[ info_data.lon ]])">Маршрут</button>
+                </div>
+                <div class="info-schedule">
+                    <div v-for="elem in info_data.schedule" class="schedule-elem">
+                        <img :src="elem.group_avatar"/>
+                        <div class="textdata">
+                            <h2 class="name">[[ elem.group ]]</h2>
+                            <p class="time">Нач. [[ elem.startdate ]] [[ elem.starttime ]]</p>
+                            <p class="time">Кон. [[ elem.findate ]] [[ elem.fintime ]]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <span>
+                Made by HTMLeader team in HackUniversity
+                </span>
+            </div>
+        </div>
+
+        <div id="mapContainer" style="width: 80vw; height:93.5vh;" v-if="!small_screen"></div>
+        <div id="mapContainer" style="width: 100vw; height:100vh;" v-else></div>
+
+    </div>
+</div>
+<script>
+    Vue.options.delimiters = ['[[', ']]'];
+    var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    show_preloader: true,
+                    small_screen: false,
+                    menuOpen: false,
+                    profiles: null,
+                    teachers: null,
+                    subjects: null,
+                    points: null,
+                    map: null,
+                    ui: null,
+                    group: null,
+                    info_data: null,
+                    schedule: null,
+                    userlong: null,
+                    userlat: null,
+                    show_now_playing: false
+                };
+            },
+            methods: {
+                showBubble: function (id) {
+                    let latitude = this.points[id].lat,
+                        longitude = this.points[id].lon;
+                    this.map.setCenter({lat: latitude, lng: longitude});
+                    this.map.setZoom(18);
+
+                    axios.get('https://geomusic.ml/api/v1/points/' + this.points[id].id)
+                        .then(
+                            function (response) {
+                                app.info_data = response.data.result;
+                            }
+                        )
+                    ;
+                },
+                removeObjectById: function (id) {
+                    for (object of app.map.getObjects()) {
+                        if (object.id === id) {
+                            app.map.removeObject(object);
+                        }
+                    }
+                },
+                createRoute: function (a, o) {
+                    let latitude = a[0][0],
+                        longitude = o[0][0];
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            function (position) {
+
+                                var routingParameters = {
+                                    'mode': 'fastest;car',
+                                    'waypoint0': 'geo!' + position.coords.latitude + ',' + position.coords.longitude,
+                                    // The end point of the route:
+                                    'waypoint1': 'geo!' + latitude + ',' + longitude,
+                                    // To retrieve the shape of the route we choose the route
+                                    // representation mode 'display'
+                                    'representation': 'display'
+                                };
+
+                                var onResult = function (result) {
+                                    var route,
+                                        routeShape,
+                                        startPoint,
+                                        endPoint,
+                                        linestring;
+                                    if (result.response.route) {
+                                        route = result.response.route[0];
+                                        routeShape = route.shape;
+
+                                        linestring = new H.geo.LineString();
+
+                                        routeShape.forEach(function (point) {
+                                            var parts = point.split(',');
+                                            linestring.pushLatLngAlt(parts[0], parts[1]);
+                                        });
+
+                                        startPoint = route.waypoint[0].mappedPosition;
+                                        endPoint = route.waypoint[1].mappedPosition;
+
+                                        var routeLine = new H.map.Polyline(linestring, {
+                                            style: {strokeColor: 'blue', lineWidth: 3}
+                                        });
+
+                                        var startMarker = new H.map.Marker({
+                                            lat: startPoint.latitude,
+                                            lng: startPoint.longitude
+                                        });
+
+                                        var endMarker = new H.map.Marker({
+                                            lat: endPoint.latitude,
+                                            lng: endPoint.longitude
+                                        });
+                                        startMarker.id = 'start';
+                                        endMarker.id = 'end';
+                                        routeLine.id = 'route';
+                                        app.map.addObjects([routeLine, startMarker, endMarker]);
+
+                                        app.map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
+                                    }
+
+                                };
+
+                                var router = app.platform.getRoutingService();
+
+                                router.calculateRoute(routingParameters, onResult,
+                                    function (error) {
+                                        alert(error.message);
+                                    });
+
+
+                            }
+                        )
+                        ;
+                    } else {
+                        alert("Geolocation is not supported by this browser.");
+                    }
+                }
+
+            },
+            mounted() {
+                this.small_screen = window.innerWidth / window.innerHeight < 1100 / 800;
+
+
+                function setInteractive(map) {
+                    // get the vector provider from the base layer
+                    var provider = map.getBaseLayer().getProvider();
+
+                    // get the style object for the base layer
+                    var style = provider.getStyle();
+
+                    var changeListener = (evt) => {
+                        if (style.getState() === H.map.Style.State.READY) {
+                            style.removeEventListener('change', changeListener);
+
+                            // enable interactions for the desired map features
+                            style.setInteractive(['places', 'places.populated-places'], true);
+
+                        }
+                    };
+                    style.addEventListener('change', changeListener);
+                }
+
+
+                axios.get('https://geomusic.ml/api/v1/schedule/')
+                    .then(
+                        function (response) {
+                            app.schedule = response.data.result;
+                        }
+                    )
+                ;
+
+                var platform = new H.service.Platform({
+                    'apikey': 'lRZDm05DGkzbkYc096Nx_iHcFjxnSCXzauO12OGO3R0'
+                });
+
+                var defaultLayers = platform.createDefaultLayers();
+
+                var map = new H.Map(
+                    document.getElementById('mapContainer'),
+                    defaultLayers.vector.normal.map,
+                    {
+                        zoom: 14,
+                        center: {lng: 30.32, lat: 59.945},
+                        pixelRatio: window.devicePixelRatio || 1
+                    });
+
+
+                window.addEventListener('resize', () => map.getViewPort().resize());
+                var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+                var ui = H.ui.UI.createDefault(map, defaultLayers, 'en-US');
+                group = new H.map.Group();
+
+                this.platform = platform;
+                this.group = group;
+                this.ui = ui;
+                this.map = map;
+
+                map.addObject(group);
+                setInteractive(map);
+
+                axios.get('https://geomusic.ml/api/v1/points/')
+                    .then(
+                        function (response) {
+                            let points = response.data.result;
+                            let result = {}
+                            for (var key in points) {
+                                result[points[key].id] = points[key];
+                                if (points[key].is_active) {
+                                    var svgMarkup =
+                                        '<a style="cursor: pointer" ' +
+                                        'onclick="app.showBubble(' + points[key].id + ');">' +
+                                        '<img class="point" src="https://geomusic.ml/images/icons/redicon.svg"/>' +
+                                        '</a>';
+                                    var icon = new H.map.DomIcon(svgMarkup);
+
+                                    coords = {lat: points[key].lat, lng: points[key].lon};
+                                    marker = new H.map.DomMarker(coords, {icon: icon});
+                                    group.addObject(marker);
+                                } else {
+                                    var svgMarkup =
+                                        '<a style="cursor: pointer" ' +
+                                        'onclick="app.showBubble(' + points[key].id + ');">' +
+                                        '<img class="point" src="https://geomusic.ml/images/icons/blueicon.svg"/>' +
+                                        '</a>';
+                                    var icon = new H.map.DomIcon(svgMarkup);
+
+                                    coords = {lat: points[key].lat, lng: points[key].lon};
+                                    marker = new H.map.DomMarker(coords, {icon: icon});
+                                    group.addObject(marker);
+                                }
+                            }
+                            app.points = result;
+                        }
+                    )
+                ;
+            }
+        })
+    ;
+</script>
+</body>
+</html>

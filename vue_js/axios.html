@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<div id="app">
+    <div v-for = "i in info">
+        <div class="block1" style="color: #cd66cc">
+            <span v-if="true">id = {{ i.id }}</span>
+            <h class="block1" style = "margin-left: auto;
+        margin-right: auto;
+        width: 20em">
+                <span v-if="true">lat = {{ i.lat }}</span>
+            </h>
+        </div>
+
+<!--        <span v-if="true">lat = {{ i.lat }}</span>-->
+        <span v-if="true">lon = {{ i.lon }}</span>
+        <span v-if="true">is_active = {{ i.is_active }}</span>
+
+    </div>
+</div>
+<script>
+var app = new Vue({
+  el: '#app',
+  data() {
+    return {
+      info: null
+    };
+  },
+  mounted() {
+    axios
+      .get('data.json')
+      .then(response => (app.info = response.data.result));
+  }
+});
+</script>
